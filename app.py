@@ -85,7 +85,7 @@ if uploaded_file is not None:
                 if not api_key:
                     st.warning("⚠️ Por favor, introduce tu Groq API Key en la barra lateral para activar los servidores de IA.")
                 else:
-                    if st.button("Ejecutar Auditoría Corporativa 🚀"):
+                    if st.button("Ejecutar 🚀"):
                         with st.spinner("Procesando datos de forma segura..."):
                             try:
                                 client = Groq(api_key=api_key)
