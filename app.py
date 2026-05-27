@@ -92,7 +92,7 @@ if uploaded_file is not None:
                                 full_prompt = f"DOCUMENTO:\n{document_text}\n\nPREGUNTA:\n{user_query}"
                                 
                                 completion = client.chat.completions.create(
-                                    model="llama3-8b-8192",
+                                    model="llama-3.3-70b-versatile",
                                     messages=[
                                         {"role": "system", "content": system_prompt},
                                         {"role": "user", "content": full_prompt}
