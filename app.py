@@ -18,7 +18,8 @@ api_key = st.sidebar.text_input(
 )
 
 st.markdown("""
-Este sistema avanzado mantiene una **conversación continua con memoria**. Puedes subir un documento y hacerle preguntas de seguimiento (ej: *'resúmelo más'*, *'explica el punto anterior'*) tal como en ChatGPT, bajo la gobernanza de datos de la **ISO 42001**.
+Este software corporativo avanzado permite auditar contratos y documentos legales en formatos **TXT, Word (.docx) y PDF** utilizando una API privada en la nube. Toda la extracción de texto se realiza de forma local en el servidor de la aplicación, 
+garantizando la gobernanza y privacidad de datos exigida por la norma **ISO 42001**.
 """)
 
 # INICIALIZAR LA MEMORIA (Session State)
