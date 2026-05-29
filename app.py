@@ -4,13 +4,13 @@ import docx
 from pypdf import PdfReader
 
 # Configuración de la página
-st.set_page_config(page_title="Chat Auditor IA - ISO 42001", page_icon="🛡️", layout="centered")
+st.set_page_config(page_title="Chat Auditor IA - ISO 42001", layout="centered")
 
-st.title("🛡️ Sistema de Auditoría con Chat Inteligente")
+st.title("Sistema de Auditoría con Chat Inteligente")
 st.subheader("Análisis Continuo de Contratos (TXT, Word, PDF)")
 
 # Barra lateral para la API Key
-st.sidebar.header("⚙️ Configuración")
+st.sidebar.header("Configuración")
 api_key = st.sidebar.text_input(
     "Introduce tu Groq API Key:", 
     type="password", 
@@ -18,7 +18,9 @@ api_key = st.sidebar.text_input(
 )
 
 st.markdown("""
-Este software corporativo avanzado permite auditar contratos y documentos legales en formatos **TXT, Word (.docx) y PDF** utilizando una API privada en la nube. Toda la extracción de texto se realiza de forma local en el servidor de la aplicación, 
+Este software corporativo avanzado permite auditar contratos y documentos 
+legales en formatos **TXT, Word (.docx) y PDF** utilizando una API privada
+en la nube. Toda la extracción de texto se realiza de forma local en el servidor de la aplicación, 
 garantizando la gobernanza y privacidad de datos exigida por la norma **ISO 42001**.
 """)
 
@@ -28,13 +30,13 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 # Botón para borrar el historial y empezar de nuevo
-if st.sidebar.button("🗑️ Borrar historial de chat"):
+if st.sidebar.button("Borrar historial de chat"):
     st.session_state.messages = []
     st.rerun()
 
 # Componente para subir archivos
 uploaded_file = st.file_uploader(
-    "📂 Sube el contrato o documento (.txt, .docx, .pdf)", 
+    "Sube el contrato o documento (.txt, .docx, .pdf)", 
     type=["txt", "docx", "pdf"]
 )
 
@@ -55,9 +57,9 @@ if uploaded_file is not None:
             document_text = '\n'.join(fullText)
 
         if document_text.strip() == "":
-            st.error("⚠️ No se pudo extraer texto del archivo.")
+            st.error("No se pudo extraer texto del archivo.")
         else:
-            st.success(f"✅ Documento '{uploaded_file.name}' indexado en la memoria de la sesión.")
+            st.success(f"Documento '{uploaded_file.name}' indexado en la memoria de la sesión.")
             
             # MENTENER VISIBLE EL HISTORIAL DE CHAT
             # Dibujamos en pantalla todos los mensajes que ya se han enviado/recibido
@@ -69,7 +71,7 @@ if uploaded_file is not None:
             if user_question := st.chat_input("Escribe aquí tu pregunta sobre el documento..."):
                 
                 if not api_key:
-                    st.warning("⚠️ Por favor, introduce tu Groq API Key en la barra lateral.")
+                    st.warning("Por favor, introduce tu Groq API Key en la barra lateral.")
                 else:
                     # 1. Mostrar la pregunta del usuario en la pantalla inmediatamente
                     with st.chat_message("user"):
